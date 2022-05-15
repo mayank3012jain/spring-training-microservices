@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="ProductControllerTest (1)" project="product-app" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cisco.training.web.ProductControllerTest" time="0.231" displayname="ProductControllerTest" uniqueid="[engine:junit-jupiter]/[class:com.cisco.training.web.ProductControllerTest]">
+    <testcase name="addProduct_Returns_201_When_Adding_In_ServiceLayer_Succeeds" classname="com.cisco.training.web.ProductControllerTest" time="0.173" displayname="addProduct_Returns_201_When_Adding_In_ServiceLayer_Succeeds()" uniqueid="[engine:junit-jupiter]/[class:com.cisco.training.web.ProductControllerTest]/[method:addProduct_Returns_201_When_Adding_In_ServiceLayer_Succeeds()]"/>
+    <testcase name="getProductById_Returns_200_And_JSON_With_Correct_Id" classname="com.cisco.training.web.ProductControllerTest" time="0.056" displayname="getProductById_Returns_200_And_JSON_With_Correct_Id()" uniqueid="[engine:junit-jupiter]/[class:com.cisco.training.web.ProductControllerTest]/[method:getProductById_Returns_200_And_JSON_With_Correct_Id()]"/>
+  </testsuite>
+</testrun>

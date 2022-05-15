@@ -1,0 +1,5 @@
+package com.cisco.training.service;
+
+public class MocksBasedProductServiceImplTest {
+
+}

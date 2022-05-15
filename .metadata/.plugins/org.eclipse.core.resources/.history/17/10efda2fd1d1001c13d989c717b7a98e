@@ -1,0 +1,39 @@
+package com.cisco.training.service;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import com.cisco.training.dal.ProductDAO;
+import com.cisco.training.dal.ProductRepository;
+import com.cisco.training.domain.Product;
+
+public class MocksBasedProductServiceImplTest {
+	
+	@Test
+	void addNewProduct_Returns_A_Valid_Id_When_ProductValue_GTEQ_MinValue() {
+		//AAA
+		//Arrange
+		SMSGateway mockGateway = Mockito.mock(SMSGateway.class);
+		ProductRepository mockDao = Mockito.mock(ProductRepository.class);
+		
+		ProductServiceImpl objectUnderTest = new ProductServiceImpl();
+		Product productParam = new Product("test", ProductServiceImpl.PRODUCT_MIN_VALUE + 1, 1);
+		Product returnFromMock = new Product("test", ProductServiceImpl.PRODUCT_MIN_VALUE + 1, 1);
+		returnFromMock.setId(1);
+		
+		
+		Mockito.when(mockDao.save(productParam)).thenReturn(returnFromMock);
+		
+//		objectUnderTest.setGateway(mockGateway);
+//		objectUnderTest.setDao(mockDao);
+		
+		//Act
+		int id = objectUnderTest.addNewProduct(productParam);
+		
+		//Assert
+		assertTrue(id > 0);
+	}
+
+}

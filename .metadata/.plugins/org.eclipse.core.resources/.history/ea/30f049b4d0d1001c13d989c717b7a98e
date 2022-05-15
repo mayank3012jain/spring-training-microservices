@@ -1,0 +1,68 @@
+package com.cisco.training.web;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.net.URI;
+import java.util.Optional;
+
+import org.hamcrest.CoreMatchers;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import com.cisco.training.domain.Product;
+import com.cisco.training.service.ProductService;
+
+@ExtendWith(SpringExtension.class)
+@WebMvcTest({ProductController.class})
+class ProductControllerTest {
+	
+	@MockBean
+	ProductService mockService;
+	
+	@Autowired
+	MockMvc mockMvc;
+
+	@Test
+	void getProductById_Returns_200_And_JSON_With_Correct_Id() throws Exception {
+		//AAA
+		//Arrange
+		int id = 1;
+		Product dataReturnedByMock = new Product("test", 10000, 10);
+		dataReturnedByMock.setId(id);
+		Optional<Product> opt = Optional.of(dataReturnedByMock);
+		Mockito.when(mockService.findById(id)).thenReturn(opt);
+		
+		//Act and Assert
+		mockMvc
+			.perform(MockMvcRequestBuilders.get("/products/{id}", id)) //Act
+			.andExpect(MockMvcResultMatchers.status().isOk())         //Assert
+			.andExpect(MockMvcResultMatchers.jsonPath("$.id", CoreMatchers.is(id))); //Assert
+	}
+  
+  
+  @Test
+	void addProduct_Returns_201_When_Adding_In_ServiceLayer_Succeeds() throws Exception {
+		//Arrange
+		int id = 1;
+		Mockito.when(mockService.addNewProduct(Mockito.any())).thenReturn(id);
+		String json = "{\"name\":\"test\",\"price\":10000,\"qoh\":1}";
+		//Act and Assert
+		mockMvc.perform(
+				MockMvcRequestBuilders
+				.post(URI.create("/products"))
+				.contentType(MediaType.APPLICATION_JSON)
+				.content(json.getBytes()))
+				.andExpect(MockMvcResultMatchers.status().isCreated());
+	}
+
+}
+

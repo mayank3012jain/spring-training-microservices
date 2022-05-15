@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="MocksBasedProductServiceImplTest" project="product-app" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.cisco.training.service.MocksBasedProductServiceImplTest" time="0.62" displayname="MocksBasedProductServiceImplTest" uniqueid="[engine:junit-jupiter]/[class:com.cisco.training.service.MocksBasedProductServiceImplTest]">
+    <testcase name="addNewProduct_Returns_A_Valid_Id_When_ProductValue_GTEQ_MinValue" classname="com.cisco.training.service.MocksBasedProductServiceImplTest" time="0.62" displayname="addNewProduct_Returns_A_Valid_Id_When_ProductValue_GTEQ_MinValue()" uniqueid="[engine:junit-jupiter]/[class:com.cisco.training.service.MocksBasedProductServiceImplTest]/[method:addNewProduct_Returns_A_Valid_Id_When_ProductValue_GTEQ_MinValue()]"/>
+  </testsuite>
+</testrun>

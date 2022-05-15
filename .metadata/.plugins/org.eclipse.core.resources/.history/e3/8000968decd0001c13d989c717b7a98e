@@ -1,0 +1,21 @@
+package com.cisco.training;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+
+import com.cisco.training.dao.ReviewsRepository;
+import com.cisco.training.domain.Review;
+
+
+public class ReviewAppApplication {
+
+	public static void main(String[] args) {
+		ApplicationContext springContainer = 
+				SpringApplication.run(ReviewAppApplication.class, args);
+		
+		ReviewsRepository bean = springContainer.getBean(ReviewsRepository.class);
+		Review r = new Review(2, "MJ", "good", 3);
+		bean.save(r);
+	}
+
+}

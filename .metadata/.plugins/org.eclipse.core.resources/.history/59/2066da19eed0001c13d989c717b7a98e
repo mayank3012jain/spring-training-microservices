@@ -1,0 +1,11 @@
+package com.cisco.training.dal;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.cisco.training.domain.Product;
+
+public interface ProductRepository extends CrudRepository<Product, Integer> {
+
+}

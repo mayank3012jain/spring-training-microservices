@@ -1,0 +1,5 @@
+package com.cisco.training.web.remote;
+
+public class ProductMicroService {
+
+}

@@ -1,0 +1,5 @@
+package com.cisco.training;
+
+public class ProductAppConfiguration {
+
+}
